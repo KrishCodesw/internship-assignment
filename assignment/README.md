@@ -1,9 +1,9 @@
 
 ---
 
-# Authentication and Profile Management System
+# Authentication Flow with Profile Management 
 
-## Next.js (App Router) + Supabase
+
 
 ### Introduction
 
@@ -37,31 +37,6 @@ This project provides a clean implementation of user authentication and profile 
 * Profile information is stored and updated using upsert operations
 * Server-side API route validates session and manages updates
 
----
-
-## Project Structure
-
-```
-project/
-│
-├── app/
-│   ├── (auth)/
-│   │   ├── signup/
-│   │   └── login/
-│   ├── profile/
-│   ├── api/
-│   │   └── profile/
-│   │       └── update/route.ts
-│   └── layout.tsx
-│
-├── lib/
-│   ├── supabaseClient.ts
-│   └── supabaseServer.ts
-│
-├── public/
-├── .env.local
-└── README.md
-```
 
 ---
 
@@ -72,7 +47,7 @@ Create a `.env.local` file in the project root with the following values:
 ```
 NEXT_PUBLIC_SUPABASE_URL=<your-supabase-url>
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=<your-public-api-key>
-SUPABASE_SERVICE_ROLE_KEY=<your-service-role-key>
+
 ```
 
 Important notes:
@@ -87,10 +62,10 @@ Important notes:
 Run the following SQL in the Supabase SQL Editor to create the `profiles` table:
 
 ```sql
-create table profiles (
-  id uuid primary key,
+create table public.profiles (
+  id uuid references auth.users on delete cascade primary key,
   full_name text,
-  updated_at timestamp
+  created_at timestamptz default now()
 );
 ```
 
