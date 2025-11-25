@@ -117,36 +117,8 @@ To deploy this application:
 3. Add the required environment variables to the deployment environment.
 4. Run the deployment and verify authentication flow and profile updates.
 
----
 
-## Troubleshooting
 
-### Profile Updates Not Applying
-
-Possible reasons:
-
-* Supabase session unavailable on the server route
-* Incorrect environment variable configuration
-* Missing or misconfigured `profiles` table
-
-Resolution steps:
-
-* Confirm environment variables match those from the Supabase dashboard
-* Ensure the `profiles` table exists and uses the correct schema
-* Check that authentication cookies or tokens are available during server-side requests
-
-### Errors During Signup or Login
-
-Common causes:
-
-* Email authentication not enabled in Supabase
-* Incorrect Supabase project keys
-* Disabled email provider
-
-Verify:
-
-* Email provider is enabled under Supabase Authentication → Providers
-* All environment variables are correctly set
 
 ---
 
@@ -156,4 +128,5 @@ This codebase is intentionally minimal to allow for easy customization and exten
 
 ---
 
-If you need alternative versions of this README (e.g., with diagrams, API specs, architecture explanation), they can be provided on request.
+## Krish Jain
+
